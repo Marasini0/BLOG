@@ -1,0 +1,19 @@
+{% extends '../template.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+    
+{% for pinfo in post %}
+<h2>{{ pinfo.heading }}</h2>
+<hr/>
+<p>
+    {{ pinfo.details }}
+</p>
+<img src = "/{{pinfo.featureimage}}" alt="{{pinfo.heading}}" title="{{pinfo.heading}}" class="img-fluid img-thumbnail rounded"/>
+
+{% endfor %}
+
+</div>
+{% endblock content %}

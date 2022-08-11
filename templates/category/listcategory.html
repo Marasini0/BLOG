@@ -1,0 +1,16 @@
+{% extends '../template.html' %}
+
+{% block content %}
+
+<h1>Post</h1>
+<div>
+    <ul style="list-style-type:none">
+{% for ac in cat %}
+<li>
+    <a href="{% url 'postdetails'%}?id={{ ac.id }}">{{ac}}</a>
+</li>
+<hr/>
+{% endfor %}
+</ul>
+</div>
+{% endblock content %}

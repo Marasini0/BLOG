@@ -1,0 +1,16 @@
+{% extends '../template.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Categories</h1>
+<div>
+    <ul style="list-style-type:none">
+{% for ac in allcategory %}
+<li><a href="{% url 'categorylist'%}?id={{ac.id}}">{{ac}}</a></li>
+<hr/>
+{% endfor %}
+</ul>
+</div>
+
+
+{% endblock content %}

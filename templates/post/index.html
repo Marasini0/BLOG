@@ -1,0 +1,16 @@
+{% extends '../template.html' %}
+
+{% block content %}
+
+<h1>Post</h1>
+<div>
+    <ul style="list-style-type:none">
+{% for ap in allpost %}
+<li>
+    <a href="{% url 'postdetails'%}?id={{ ap.id }}">{{ap}}</a>
+</li>
+<hr/>
+{% endfor %}
+</ul>
+</div>
+{% endblock content %}
