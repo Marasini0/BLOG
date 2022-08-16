@@ -1,0 +1,24 @@
+{% extends '../template.html' %}
+{% block content %}
+<h1>Login</h1>
+<div>
+    <div>
+        {% for message in messages %}   
+        {{ message }}
+        {% endfor %}
+    </div>      <!--{} yo diyeko chai .py ko code .html ma lekhna paryo vane use huncha -->
+
+    <form actions ="login" method="post">
+        {%csrf_token %}
+        <input type="text" name="username" placeholder="UserName" />
+        <br/>
+       <!-- <input type="email" name="email" placeholder="Email"/>
+        <br/> -->
+        <input type="password" name="password" placeholder="Password"/>
+        <br/>
+        <input type="submit" name="Submit" placeholder="Login"/><br/>
+        <h10>New User?</h10> <br/>
+        <a href="{% url 'register' %}">Register</a>
+           </form>
+</div>
+{% endblock content %}

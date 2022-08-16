@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.shortcuts import render
 from category.views import *
 from post.views import *
+from accounts.views import *
 
 def home(request):
     return render(request, 'index.html')
@@ -29,11 +30,12 @@ def about(request):
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),        #admin/-> pachadi ko slash le admin pachi kun url aaucha vanne bujaucha
     path('', home, name = 'index'), 
     path('about/', about, name = 'about'), 
     path('category/', include('category.urls')),
-    path('post/', include('post.urls'))
+    path('post/', include('post.urls')),
+    path('accounts/', include('accounts.urls'))
 ]
 
 
