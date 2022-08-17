@@ -4,5 +4,4 @@ from .import views
 urlpatterns = [
     path('all/', views.index, name='allpost'),
     path('details/', views.details, name='postdetails'),
-
     ]

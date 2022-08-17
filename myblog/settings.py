@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'category.apps.CategoryConfig',
     'post.apps.PostConfig',
     'accounts.apps.AccountsConfig',
+    'comments.apps.CommentsConfig',
     
 ]
 

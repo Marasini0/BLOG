@@ -16,4 +16,28 @@
 {% endfor %}
 
 </div>
+
+<div>
+    <h2>Post your comments</h2>
+    {% if user.is_authenticated %}
+    Userid = {{ user.id }}
+    <input type = "hidden" value="{{postid}}" name="post_id"/>
+    <input type="hidden" value="{{user.id}}" name="user_id"/>
+    html form will be here
+{% else %}
+
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+</div>
+
+<div> 
+    <h3>Comments for this post</h3>
+    {% for cmt in allcomment %}
+    <p>{{ cmt.cmt }}</p>
+    <p>{{ cmt.createdate }}</p>
+
+    <hr/>
+    {% endfor %}
+</div>
+
 {% endblock content %}

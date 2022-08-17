@@ -35,7 +35,8 @@ urlpatterns = [
     path('about/', about, name = 'about'), 
     path('category/', include('category.urls')),
     path('post/', include('post.urls')),
-    path('accounts/', include('accounts.urls'))
+    path('accounts/', include('accounts.urls')),
+    path('comments/', include('comments.urls'))
 ]
 
 
