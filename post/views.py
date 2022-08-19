@@ -15,11 +15,12 @@ def index(request):
 
 def details(request):
     postid = request.GET['id']
-    post = Post.objects.filter(id=postid) #select * from Post where id = postid
-    allcomment = Comments.objects.filter(post_id=postid).order_by('id').reverse()
+    post = Post.objects.filter(id=postid) #"SELECT * from Post where id ="+postid
+    allcomment = Comments.objects.filter(post_id=postid, status=1).order_by('id').reverse()
     context= {
         'post':post,
         'allcomment':allcomment,
+        'postid':postid,
     }
     return render(request, 'post/details.html', context)
 

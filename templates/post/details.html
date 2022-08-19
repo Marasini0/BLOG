@@ -20,13 +20,23 @@
 <div>
     <h2>Post your comments</h2>
     {% if user.is_authenticated %}
-    Userid = {{ user.id }}
-    <input type = "hidden" value="{{postid}}" name="post_id"/>
-    <input type="hidden" value="{{user.id}}" name="user_id"/>
-    html form will be here
+    {% for cmtmessage in messages %}
+        {{ cmtmessage }}
+        {% endfor %}
+        <form action ="/comments/add/" method="post"> <!--actions huda direct function name lekhna milcha, action huda -->
+        {%csrf_token %}
+        <input type = "hidden" value="{{postid}}" name="post_id"/><br/>
+        <input type="text" readonly value="{{user.id}}" name="user_id"/><br/><!--these both are alternate method to retrieve data into the form-->
+        <textarea rows="5" cols="50" name="cmt">
+        </textarea>
+        <br/>
+        <input type="submit" name="Submit" value="Post Comments"/>
+        <input type="reset" name="Reset" value="Cancle"/>
+        </form>
 {% else %}
-
-<a href="{% url 'login' %}">Login</a>
+    <p>For adding a comment you must have to login first.</p>
+    <p>Only Login Users can post the comments.</p>
+    <a href="{% url 'login' %}">Login</a>
 {% endif %}
 </div>
 
